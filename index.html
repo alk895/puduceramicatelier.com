@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seramik Ürünler | El Yapımı Tasarımlar</title>
+
+  <style>
+    body { margin: 0; font-family: "Segoe UI", sans-serif; background: #f5f1eb; color: #333; }
+    header { background: #4a3f35; color: #fff; padding: 25px; text-align: center; font-size: 22px; letter-spacing: 1px; }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: #e8dfd3;
+      color: #3a2f28;
+    }
+    .hero h1 { font-size: 36px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; opacity: 0.8; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .title { font-size: 20px; margin-top: 12px; font-weight: bold; }
+    .desc { margin-top: 8px; font-size: 15px; opacity: 0.8; line-height: 1.4; }
+    .size { margin-top: 6px; font-size: 14px; color: #444; }
+
+    .price {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #b5692e;
+      font-weight: bold;
+    }
+
+    .btn {
+      margin-top: 15px;
+      display: block;
+      background: #1dbf52;
+      color: white;
+      padding: 12px 0;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #159a43; }
+
+    footer {
+      margin-top: 50px;
+      padding: 25px;
+      background: #4a3f35;
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>El Yapımı Seramik Ürünler</header>
+
+  <div class="hero">
+    <h1>Modern ve Şık Seramik Tasarımlar</h1>
+    <p>Atölyemizde el işçiliğiyle ürettiğimiz benzersiz ürünleri keşfedin.</p>
+  </div>
+
+  <div class="grid" id="product-grid"></div>
+
+  <footer>
+    © 2025 Seramik Atölyesi — Tüm Hakları Saklıdır
+  </footer>
+
+  <script>
+    const products = [
+      { name: "El Yapımı Seramik Kupa", price: "350 TL", size: "Yükseklik: 9 cm • Çap: 8 cm", desc: "Tamamen el işçiliği ile üretilmiş günlük kullanım kupası.", img: "https://via.placeholder.com/400x300?text=Seramik+Kupa" },
+      { name: "Desenli Kahvaltı Tabağı", price: "280 TL", size: "Çap: 22 cm", desc: "Kahvaltı sunumları için özel desenli tabak.", img: "https://via.placeholder.com/400x300?text=Seramik+Tabak" },
+      { name: "Rustik Vazo", price: "450 TL", size: "Yükseklik: 25 cm", desc: "Doğal tonlarda rustik dekoratif vazo.", img: "https://via.placeholder.com/400x300?text=Vazo" }
+    ];
+
+    const grid = document.getElementById("product-grid");
+
+    products.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${p.img}" />
+        <div class="title">${p.name}</div>
+        <div class="desc">${p.desc}</div>
+        <div class="size">${p.size}</div>
+        <div class="price">${p.price}</div>
+        <a class="btn" href="https://wa.me/905555555555?text=${encodeURIComponent(p.name + ' hakkında bilgi almak istiyorum')}">WhatsApp Sipariş</a>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
