@@ -1,14 +1,3 @@
-<!--
-  README: Bu dosya GitHub Pages için hazır bir statik site şablonudur.
-  Hızlı değişiklik talimatları (kolay):
-  - logo: repo köküne `logo.png` adlı küçük PNG ekleyin (max 250x80 px).
-  - ürün fotoğrafları: `images/` klasörü oluşturup `urun1.jpg`, `urun2.jpg` gibi ekleyin.
-  - ürünleri düzenlemek: <script> içindeki `products` dizisini düzenleyin.
-  - WhatsApp numarasını değiştirmek: `CONTACT_WHATSAPP` değişkenini aşağıdaki scriptten güncelleyin.
-  - e-posta değişikliği için HTML içindeki iletişim bölümünü güncelleyin.
-
-  Repo'ya yükleme için: GitHub > Add file > Upload files (logo ve images klasörünü ekle) veya Create new file > index.html (tüm kod yapıştır).
--->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -55,7 +44,7 @@
     section#about h2, section#contact h2{font-size:28px;margin-bottom:10px;color:var(--accent)}
     footer{background:var(--accent);color:white;padding:18px;text-align:center}
 
-    /* Responsive */
+    
     @media (max-width:900px){
       nav ul{display:none;position:absolute;top:68px;right:20px;background:var(--accent);padding:10px;border-radius:8px}
       nav ul.open{display:flex;flex-direction:column;gap:12px}
@@ -112,17 +101,15 @@
   <footer>© 2025 Pudu Ceramic Atelier — Tüm Hakları Saklıdır</footer>
 
   <script>
-    // --- Ayarlanabilir Değişkenler (burayı düzen):
+    
     const CONTACT_WHATSAPP = '905555555555'; // başında ülke kodu olmalı
 
-    // Ürünleri buradan yönetin: (img: images/urun1.jpg şeklinde repo'ya yüklemeniz gereken dosya ismi)
     const products = [
       { id:1, name: "El Yapımı Seramik Kupa", price: "350 TL", size: "Yükseklik: 9 cm • Çap: 8 cm", desc: "Tamamen el işçiliği ile üretilmiş günlük kullanım kupası.", img: "images/urun1.jpg" },
       { id:2, name: "Desenli Kahvaltı Tabağı", price: "280 TL", size: "Çap: 22 cm", desc: "Kahvaltı sunumları için özel desenli tabak.", img: "images/urun2.jpg" },
       { id:3, name: "Rustik Vazo", price: "450 TL", size: "Yükseklik: 25 cm", desc: "Doğal tonlarda rustik dekoratif vazo.", img: "images/urun3.jpg" }
     ];
 
-    // --- İçerik render fonksiyonu
     const grid = document.getElementById('products');
     function renderProducts(){
       grid.innerHTML = '';
@@ -143,19 +130,16 @@
 
     renderProducts();
 
-    // --- Hamburger menü
     const hb = document.getElementById('hb');
     const navList = document.getElementById('nav-list');
     hb.addEventListener('click', ()=>{
       navList.classList.toggle('open');
     });
 
-    // --- Contact whatsapp link update
     const waLink = document.getElementById('wa-num');
     waLink.href = 'https://wa.me/' + CONTACT_WHATSAPP;
     waLink.textContent = CONTACT_WHATSAPP.replace(/^90/, '0');
 
-    // --- Kullanıcıya kısa yönergeler (console'da görünür)
     console.info('Yönergeler: repo köküne logo.png, images/ klasörüne urun görsellerini yükleyin. products dizisini güncelleyin. CONTACT_WHATSAPP değişkenini kendi numaranızla düzenleyin.');
   </script>
 </body>
